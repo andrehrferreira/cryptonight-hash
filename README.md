@@ -21,6 +21,36 @@ emsdk install --build=Release sdk-incoming-64bit binaryen-master-64bit
 emsdk activate --global --build=Release sdk-incoming-64bit binaryen-master-64bit
 ```
 
+## Build
+
+```bash
+emcc cryptonight.c crypto/*.c -O0 -s VERBOSE=1 -s WASM=1 -s BINARYEN=1 -s NO_EXIT_RUNTIME=0 -s ASSERTIONS=1 -s BINARYEN_METHOD="'native-wasm,asmjs'" -s "BINARYEN_TRAP_MODE='js'" -s EXPORTED_FUNCTIONS="['_cryptonight_hash']" -s 'EXTRA_EXPORTED_RUNTIME_METHODS=["ccall", "cwrap"]' -o cryptonight.js
+```
+
+Or
+
+```bash
+$ chmod +x ./build.sh
+$ ./build.sh
+```
+
+## Fix to Nodejs
+
+There is a relatively simple problem that makes the script not work correctly in Node.js, to correct just comment the line below in the file cryptonight.js, the files available in this repository are already fixed
+
+```js
+if (ENVIRONMENT_IS_NODE) {
+  process['exit'](status);
+}
+```
+
+To
+```js
+if (ENVIRONMENT_IS_NODE) {
+  //process['exit'](status);
+}
+```
+
 ## Usage
 
 The use is very simple, just follow the official guidelines in Cryptonote https://github.com/cryptonotefoundation/cryptonote

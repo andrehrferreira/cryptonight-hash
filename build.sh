@@ -1,1 +1,1 @@
-emcc cryptonight.c crypto/*.c -O0 -s VERBOSE=1 -s WASM=1 -s NO_EXIT_RUNTIME=0 -s ASSERTIONS=1 -s EXPORTED_FUNCTIONS="['_cryptonight_hash']" -o cryptonight.js
+emcc cryptonight.c crypto/*.c -O0 -s VERBOSE=1 -s WASM=1 -s BINARYEN=1 -s NO_EXIT_RUNTIME=0 -s ASSERTIONS=1 -s BINARYEN_METHOD="'native-wasm,asmjs'" -s "BINARYEN_TRAP_MODE='js'" -s EXPORTED_FUNCTIONS="['_cryptonight_hash']" -s 'EXTRA_EXPORTED_RUNTIME_METHODS=["ccall", "cwrap"]' -o cryptonight.js
