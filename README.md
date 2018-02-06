@@ -71,3 +71,7 @@ input[42] = (nonce & 255) >> 0;
 criptonight.ccall("cryptonight_hash", "string", [], [input.byteOffset, output.byteOffset, input.byteLength]);
 console.log("Cryptonight: " + nonce + ": " + Buffer.from(output).toString('hex'));
 ```
+
+## Donate
+
+XMR wallet: 47TVQKg7VJCN6VVwwkfkPh8WWdpQK6T4c2iW9dAWFiyTjYkEFnatGt8bhbkPcAdRUhBGRtT1cASQiiAoZzbGx6t8UxW2hzP
