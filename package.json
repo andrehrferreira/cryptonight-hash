@@ -1,6 +1,6 @@
 {
     "name": "cryptonight-hash",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "JavaScript crytonight hash generation interface",
     "author": "Andre Ferreira <andrehrf@gmail.com>",
     "main": "index.js",
