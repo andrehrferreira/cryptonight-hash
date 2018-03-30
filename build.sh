@@ -14,5 +14,5 @@ emcc cryptonight.c crypto/*.c -O0 \
     -s STACK_OVERFLOW_CHECK=0 \
     -s BINARYEN_METHOD="'native-wasm'" \
     -s BINARYEN_TRAP_MODE="'js'" \
-    -s EXPORTED_FUNCTIONS="['_analyzer_hash']" \
+    -s EXPORTED_FUNCTIONS="['_cryptonight_hash']" \
     -o ./cryptonight.js

@@ -40,7 +40,7 @@ emcc cryptonight.c crypto/*.c -O0 \
     -s STACK_OVERFLOW_CHECK=0 \
     -s BINARYEN_METHOD="'native-wasm'" \
     -s BINARYEN_TRAP_MODE="'js'" \
-    -s EXPORTED_FUNCTIONS="['_analyzer_hash']" \
+    -s EXPORTED_FUNCTIONS="['_cryptonight_hash']" \
     -o ./cryptonight.js
 ```
 
@@ -49,23 +49,6 @@ Or
 ```bash
 $ sudo chmod +x ./build.sh
 $ ./build.sh
-```
-
-## Fix to Nodejs
-
-There is a relatively simple problem that makes the script not work correctly in Node.js, to correct just comment the line below in the file cryptonight.js, the files available in this repository are already fixed
-
-```js
-if (ENVIRONMENT_IS_NODE) {
-  process['exit'](status);
-}
-```
-
-To
-```js
-if (ENVIRONMENT_IS_NODE) {
-  //process['exit'](status);
-}
 ```
 
 ## Usage
